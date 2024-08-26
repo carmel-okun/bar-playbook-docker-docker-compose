@@ -18,7 +18,8 @@
         mode: '755'
 
     - name: Add the Docker group to the user
-      shell: |
-        usermod -aG docker $USER
-        newgrp docker
+      user:
+        name: "ubuntu"
+        groups: docker
+        append: yes
         
